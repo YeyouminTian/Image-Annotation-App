@@ -60,7 +60,13 @@ image-rating-app/
 ## 使用说明
 
 1. 启动应用后，选择包含图片的文件夹和评级选项 CSV 文件。
+
+![初始页面](https://md-1306736402.cos.ap-nanjing.myqcloud.com/OBLifeOS/202410102225131.png)
+
 2. 点击 "Start Rating" 按钮开始评级过程。
+
+![评级页面](https://md-1306736402.cos.ap-nanjing.myqcloud.com/OBLifeOS/202410102226383.png)
+
 3. 使用左侧的缩略图导航或 "Previous" 和 "Next" 按钮浏览图片。
 4. 点击评级按钮为当前图片评级。
 5. 完成评级后，点击 "Save Ratings" 按钮将结果保存为 CSV 文件。
