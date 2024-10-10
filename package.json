@@ -1,0 +1,61 @@
+{
+  "name": "image-rating",
+  "version": "1.0.0",
+  "description": "A desktop application for rating images",
+  "author": "Yeyoumin Tian <will.tianye@outlook.com>",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "dev": "vite",
+    "build": "vite build && electron-builder",
+    "preview": "vite preview",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "server": "node server.js",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.tianye.imagerating",
+    "productName": "Image Rating",
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "preload.js",
+      "server.js"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    }
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "csv-parse": "^5.5.6",
+    "csv-parser": "^3.0.0",
+    "csv-stringify": "^6.5.1",
+    "electron-squirrel-startup": "^1.0.1",
+    "express": "^4.17.1",
+    "iconv-lite": "^0.6.3",
+    "jschardet": "^3.1.4"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.5.0",
+    "@electron-forge/maker-deb": "^7.5.0",
+    "@electron-forge/maker-rpm": "^7.5.0",
+    "@electron-forge/maker-squirrel": "^7.5.0",
+    "@electron-forge/maker-zip": "^7.5.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.5.0",
+    "@electron-forge/plugin-fuses": "^7.5.0",
+    "@electron/fuses": "^1.8.0",
+    "electron": "^24.0.0",
+    "electron-builder": "^25.1.7",
+    "vite": "^4.3.9"
+  }
+}

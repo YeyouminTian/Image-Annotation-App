@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image annotation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Image annotation</h1>
+        <div id="file-selection">
+            <button id="start-annotation">Start annotation</button>
+        </div>
+        <div class="main-content" style="display: none;">
+            <div id="image-navigation"></div>
+            <div class="annotation-area">
+                <div id="image-container"></div>
+                <div id="annotation-container"></div>
+                <div id="navigation">
+                    <button id="prev-button">Previous</button>
+                    <button id="next-button">Next</button>
+                    <button id="save-button">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

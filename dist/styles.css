@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap');
+
+:root {
+    --primary-color: #007AFF;
+    --background-color: #F2F2F7;
+    --text-color: #1C1C1E;
+    --border-color: #C7C7CC;
+    --annotated-color: #4CAF50;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 300;
+    font-size: 2.5em;
+    margin: 20px 0;
+}
+
+#file-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#selected-files {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+#image-navigation {
+    width: 200px;
+    overflow-y: auto;
+    border-right: 1px solid var(--border-color);
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 5px;
+}
+
+.image-button {
+    width: calc(25% - 5px); /* 改为25%，使每行显示4个 */
+    aspect-ratio: 1;
+    padding: 5px;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px; /* 稍微减小字体大小 */
+    transition: background-color 0.3s ease;
+    color: var(--text-color);
+}
+
+.image-button.annotated {
+    background-color: var(--annotated-color);
+    color: white;
+}
+
+.annotation-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow: hidden;
+}
+
+#image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+#annotation-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.annotation-button {
+    padding: 10px 20px;
+    font-size: 16px; /* 增加字体大小 */
+    cursor: pointer;
+    background-color: #f0f0f0; /* 稍微深一点的背景色 */
+    color: #000000; /* 使用黑色文字 */
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 100px;
+    max-width: 200px; /* 添加最大宽度 */
+    margin: 5px;
+    display: inline-block;
+}
+
+.annotation-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#navigation {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    #image-navigation {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+}
