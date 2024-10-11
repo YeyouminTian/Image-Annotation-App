@@ -1,7 +1,7 @@
 {
   "name": "image-rating",
   "version": "1.0.0",
-  "description": "A desktop application for rating images",
+  "description": "A desktop application for annotating images",
   "author": "Yeyoumin Tian <will.tianye@outlook.com>",
   "main": "main.js",
   "scripts": {
