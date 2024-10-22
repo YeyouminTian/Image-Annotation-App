@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (images.length > 0) {
             const currentImage = images[currentImageIndex];
             imageContainer.innerHTML = `<img src="${currentImage.path}" alt="Image ${currentImageIndex + 1}">`;
+            updateImageNavigation(); // 添加这行
         } else {
             imageContainer.innerHTML = '<p>No images found</p>';
         }
@@ -101,6 +102,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 button.classList.add('current');
             }
             button.addEventListener('click', () => {
+                // 移除之前的 'current' 类
+                const currentButton = imageNavigation.querySelector('.current');
+                if (currentButton) {
+                    currentButton.classList.remove('current');
+                }
+                // 添加 'current' 类到新选中的按钮
+                button.classList.add('current');
                 currentImageIndex = index;
                 displayCurrentImage();
             });
@@ -152,22 +160,24 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.log('Current annotations:', annotations);
             updateImageNavigation();
 
-            // 检查是否所有图片都已标注
-            const allAnnotated = images.every(image => annotations[image.name]);
+            // 找到下一个未标注的图片，从当前位置往后查找
+            let nextUnannotatedIndex = images.findIndex((image, index) => 
+                index > currentImageIndex && !annotations[image.name]
+            );
 
-            if (allAnnotated) {
+            // 如果从当前位置往后没有找到未标注的图片，那么从头开始查找
+            if (nextUnannotatedIndex === -1) {
+                nextUnannotatedIndex = images.findIndex(image => !annotations[image.name]);
+            }
+
+            // 如果还是没有找到未标注的图片，说明所有图片都已标注
+            if (nextUnannotatedIndex === -1) {
                 if (!isSaving) {
                     showSaveDialog();
                 }
             } else {
-                // 找到第一个未标注的图片
-                const nextUnannotatedIndex = images.findIndex(image => !annotations[image.name]);
-                if (nextUnannotatedIndex !== -1) {
-                    currentImageIndex = nextUnannotatedIndex;
-                } else {
-                    currentImageIndex = (currentImageIndex + 1) % images.length;
-                }
-                displayCurrentImage();
+                currentImageIndex = nextUnannotatedIndex;
+                displayCurrentImage(); // 使用 displayCurrentImage 替代 updateImageNavigation
             }
         }
     }
