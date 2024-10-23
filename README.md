@@ -41,18 +41,18 @@ image-rating-app/
 
 ## 安装和运行
 
-1. 克隆仓库:
+1. 克隆仓库：
    ```
    git clone https://github.com/YeyouminTian/Image-Annotation-App.git
    cd image-rating-app
    ```
 
-2. 安装依赖:
+2. 安装依赖：
    ```
    npm install
    ```
 
-3. 运行应用:
+3. 运行应用：
    ```
    npm start
    ```
@@ -111,3 +111,11 @@ image3.jpg,非常好,5
 ## 许可证
 
 [MIT License](LICENSE)
+
+## 联系方式
+
+提供您的联系方式或项目相关的联系信息。
+
+---
+
+如果您有任何问题或建议，请随时提出 issue 或发起 pull request。感谢您的关注！
